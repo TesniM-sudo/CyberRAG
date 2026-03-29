@@ -1,0 +1,34 @@
+Title: SQL Injection
+Contributor(s): kingthorin, zbraiterman
+Overview:
+SQL Injection (SQLi) is an injection attack that occurs when an attacker inserts malicious SQL code into an application’s input fields. This code is then executed by the backend database, allowing attackers to bypass authentication, read/modify/delete data, or even execute administrative commands on the database server.
+Threat Modeling:
+Successful SQL injection can lead to complete data disclosure, data tampering or destruction, identity spoofing, authorization bypass, and database server compromise. It poses high impact risks including loss of confidentiality, integrity, and availability. The severity is often critical, especially in PHP and legacy ASP applications.
+How to Avoid:
+
+Primary defense: Use prepared statements (parameterized queries) to keep data separate from SQL code.
+Use allow-list input validation as a secondary control.
+Apply least privilege principles for database accounts.
+Prefer safe APIs or ORMs (used correctly).
+Avoid dynamic SQL concatenation and manual escaping as the sole defense.
+
+Examples:
+Vulnerable code (C#):
+C#string query = "SELECT * FROM items WHERE owner = '" + userName + "' AND itemname = '" + ItemName.Text + "'";
+Malicious input for itemName: name' OR 'a'='a
+Resulting query: Returns all items (bypassing ownership check).
+Safe version (Java):
+JavaString query = "SELECT id, firstname, lastname FROM authors WHERE firstname = ? AND lastname = ?";
+PreparedStatement pstmt = connection.prepareStatement(query);
+pstmt.setString(1, firstname);
+pstmt.setString(2, lastname);
+Key Points:
+
+Occurs when untrusted input is concatenated into SQL queries
+Affects any SQL-based database (most common in web apps)
+Easy to exploit and very common
+Parameterized queries are the most effective prevention
+Stored procedures and escaping offer only partial protection
+Always combine with input validation and least privilege
+
+This format is clean, concise, and well-structured for documentation, training materials, or knowledge bases.

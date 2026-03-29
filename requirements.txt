@@ -1,0 +1,14 @@
+# Core RAG & NLP
+langchain==1.0.0
+sentence-transformers==2.2.2
+faiss-cpu==1.13.2
+# PDF / File Handling
+pypdf==3.12.2
+
+# Web backend
+fastapi==0.109.0
+uvicorn==0.23.2
+
+
+python-dotenv==1.0.0
+requests==2.32.0
