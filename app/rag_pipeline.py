@@ -4,9 +4,12 @@ from dotenv import load_dotenv
 from app.embeddings import embed_text
 import app.vector_store as vector_store
 
+from dotenv import load_dotenv
+import os
+
 load_dotenv()
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")  # <-- THIS IS THE NAME OF THE VARIABLE, NOT THE KEY
 MODEL = "llama-3.3-70b-versatile"
 
 def load_documents():
