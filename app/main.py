@@ -3,10 +3,10 @@ import asyncio
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
-from .rag_pipeline import build_index, ask_rag  # <-- relative import
+from .rag_pipeline import build_index, ask_rag  
 from dotenv import load_dotenv
 import os
-load_dotenv()  # must be called before accessing os.getenv
+load_dotenv() 
 api_key = os.getenv("GROQ_API_KEY")
 if not api_key:
     raise ValueError("GROQ_API_KEY is not set. Check your .env file.")
