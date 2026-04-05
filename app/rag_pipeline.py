@@ -9,7 +9,7 @@ import os
 
 load_dotenv()
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")  # <-- THIS IS THE NAME OF THE VARIABLE, NOT THE KEY
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")  
 MODEL = "llama-3.3-70b-versatile"
 
 def load_documents():
